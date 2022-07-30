@@ -1,0 +1,18 @@
+{
+  "name": "scb-coop-crawler",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon --exec 'ts-node main.ts'"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "puppeteer": "^15.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.6.2",
+    "nodemon": "^2.0.19",
+    "typescript": "^4.7.4"
+  }
+}
