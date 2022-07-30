@@ -24,3 +24,4 @@ $ yarn dev
 - [ ] More readable documents, how to install program, runs, starts
 - [ ] To be a real web crawler, not screenshot
 - [ ] Unit testing with Jest
+- [ ] Capture a screenshot from deposit page
