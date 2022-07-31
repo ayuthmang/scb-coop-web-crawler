@@ -1,6 +1,15 @@
 import dotenv from 'dotenv'
 import path from 'path'
-import puppeteer, { Puppeteer } from 'puppeteer'
+import puppeteer from 'puppeteer'
+import fs from 'fs'
+
+const BASE_SCREENSHOTS_DIR = path.join(__dirname, 'screenshots')
+const BASE_URL = 'https://scbcoop.scb.co.th'
+const URLS = {
+  login: `${BASE_URL}/Account/Login.aspx`,
+  depositAccount: `${BASE_URL}/Deposit/DepositAccount.aspx`,
+  shareStock: `${BASE_URL}/Share/ShareStock.aspx`,
+}
 
 main()
 
@@ -11,13 +20,10 @@ async function main() {
 
 async function bootstrap() {
   dotenv.config()
-}
 
-const BASE_URL = 'https://scbcoop.scb.co.th'
-const URLS = {
-  login: `${BASE_URL}/Account/Login.aspx`,
-  depositAccount: `${BASE_URL}/Deposit/DepositAccount.aspx`,
-  shareStock: `${BASE_URL}/Share/ShareStock.aspx`,
+  if (!fs.existsSync(BASE_SCREENSHOTS_DIR)) {
+    fs.mkdirSync(BASE_SCREENSHOTS_DIR)
+  }
 }
 
 async function start() {
@@ -33,10 +39,14 @@ async function start() {
   })
 
   await gotoDepositAccountPage(page)
-  await page.screenshot({ path: 'deposit-account.png' })
+  await page.screenshot({
+    path: path.resolve(BASE_SCREENSHOTS_DIR, 'deposit-account.png'),
+  })
 
   await gotoShareStockPage(page)
-  await page.screenshot({ path: 'share-stocks.png' })
+  await page.screenshot({
+    path: path.resolve(BASE_SCREENSHOTS_DIR, 'share-sock.png'),
+  })
 
   await browser.close()
 }
