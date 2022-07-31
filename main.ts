@@ -1,4 +1,5 @@
 import dotenv from 'dotenv'
+import path from 'path'
 import puppeteer, { Puppeteer } from 'puppeteer'
 
 main()
@@ -30,6 +31,9 @@ async function start() {
     username: process.env.USERNAME!,
     password: process.env.PASSWORD!,
   })
+
+  await gotoDepositAccountPage(page)
+  await page.screenshot({ path: 'deposit-account.png' })
 
   await gotoShareStockPage(page)
   await page.screenshot({ path: 'share-stocks.png' })
@@ -71,4 +75,10 @@ async function gotoShareStockPage(page: puppeteer.Page) {
     return document.querySelector(labelShareStockElmId)?.textContent
   })
   */
+}
+
+async function gotoDepositAccountPage(page: puppeteer.Page) {
+  const tableBodyElmId = '#ContentPlaceHolder1_bodyContent_GridView1'
+  await page.goto(URLS.depositAccount, { waitUntil: 'domcontentloaded' })
+  await page.waitForSelector(tableBodyElmId)
 }
