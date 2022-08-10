@@ -13,6 +13,10 @@ I'd appreciated the pull request from the visitors. 👀
 
 Also, you can take a look what else you can contribute at the [Todo List](#todo-list) section.
 
+## Demo
+
+![demo](./docs/images/demo.gif)
+
 ## Requirement
 
 - An account in the [SCB CO-OP](https://scbcoop.scb.co.th/) website.
