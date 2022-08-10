@@ -1,5 +1,10 @@
 # SCB COOP WEB CRAWLER
 
+## Requirement
+
+- An account in the [SCB CO-OP](https://scbcoop.scb.co.th/) website.
+- Node v16
+
 ## Installation
 
 Install all of the dependencies via
