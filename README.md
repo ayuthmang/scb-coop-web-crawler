@@ -1,4 +1,9 @@
-# SCB COOP WEB CRAWLER
+# SCB COOP NET BOT
+
+## Motivation
+
+I'm too lazy to login to the website of [SCB CO-OP](https://scbcoop.scb.co.th/) and view my assets.
+So I created this bot to do that by using [puppeteer](https://github.com/puppeteer/puppeteer) to login and capture the screenshot of the page and save to the [screenshots](./screenshots/) folder.
 
 ## Requirement
 
