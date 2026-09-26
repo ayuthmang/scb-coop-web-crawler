@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 import path from 'path'
-import puppeteer from 'puppeteer'
+import puppeteer, { Page } from 'puppeteer'
 import fs from 'fs'
 
 const BASE_SCREENSHOTS_DIR = path.join(__dirname, 'screenshots')
@@ -52,7 +52,7 @@ async function start() {
 }
 
 async function login(
-  page: puppeteer.Page,
+  page: Page,
   {
     username,
     password,
@@ -73,7 +73,7 @@ async function login(
   await page.waitForNavigation()
 }
 
-async function gotoShareStockPage(page: puppeteer.Page) {
+async function gotoShareStockPage(page: Page) {
   const labelShareStockElmId = '#ContentPlaceHolder1_bodyContent_lblShareStock'
   await page.goto(URLS.shareStock, { waitUntil: 'domcontentloaded' })
   await page.waitForSelector(labelShareStockElmId)
@@ -87,7 +87,7 @@ async function gotoShareStockPage(page: puppeteer.Page) {
   */
 }
 
-async function gotoDepositAccountPage(page: puppeteer.Page) {
+async function gotoDepositAccountPage(page: Page) {
   const tableBodyElmId = '#ContentPlaceHolder1_bodyContent_GridView1'
   await page.goto(URLS.depositAccount, { waitUntil: 'domcontentloaded' })
   await page.waitForSelector(tableBodyElmId)
